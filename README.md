@@ -9,4 +9,5 @@ Representative pictures which describe the specific tourist attractions were use
 Further details about places of interest can be found through the links associated with each popup icon.
 
 **The .Rmd, .html and icons files are uploaded in the repository.
+
 The generated map is available at http://rpubs.com/lilianabraescu/458088**
