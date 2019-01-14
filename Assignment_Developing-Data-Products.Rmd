@@ -1,0 +1,46 @@
+---
+title: "Assignment: Interactive map with Leaflet"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Top Attractions in Montreal: January 13, 2019
+
+```{r Montreal, echo=FALSE}
+library(leaflet)
+MontrealIcons <- makeIcon(
+        iconUrl = c("Biodome.jpg", "Biosphere.jpg", "Botanical_Garden.jpg", "M_Royal_Chalet.jpg", "Museum_Fine_Arts.jpg", "Notre_Dame_Basilica.jpg", "Old_Port.jpg", "St_Josephs_Oratory.jpg", "La_Ronde.jpg"),
+        iconWidth = c(31*215/230, 31*215/230, 31*215/230, 31*215/230, 31*215/230, 31*215/230, 31*215/230, 31*215/230, 31*215/230), iconHeight = c(31, 31, 31, 31, 31, 31, 31, 31, 31),
+        iconAnchorX = c(31*215/230/2, 31*215/230/2, 31*215/230/2, 31*215/230/2, 31*215/230/2, 31*215/230/2, 31*215/230/2, 31*215/230/2, 31*215/230/2), iconAnchorY = c(16, 16, 16, 16, 16, 16, 16, 16, 16)
+)
+
+MontrealSites <- c(
+ "<a href='http://m.espacepourlavie.ca/en/about-biodome/'>Biodome</a>",
+ "<a href='http://gomontrealtourism.com/biosphere/'>Biosphere</a>",
+ "<a href='http://gomontrealtourism.com/montreal-botanical-garden/'>Botanical Garden</a>",
+ "<a href='http://gomontrealtourism.com/mount-royal/'>Mount Royal Chalet</a>",
+ "<a href='http://gomontrealtourism.com/montreal-museum-of-fine-arts/'>Museum of Fine Arts</a>",
+  "<a href='http://gomontrealtourism.com/notre-dame-basilica/'>Notre Dame Basilica</a>",
+ "<a href='http://gomontrealtourism.com/old-port-montreal/'>Old Port Montreal</a>",
+ "<a href='http://gomontrealtourism.com/saint-josephs-oratory/'>Saint Josephs Oratory</a>",
+ "<a href='https://www.sixflags.com/larondeen/'>La Ronde</a>"
+)
+MontrealLatLong <- data.frame(
+        lat = c(45.562137, 45.515124, 45.559851, 45.503951, 45.499365, 45.504751, 45.504415, 45.492792, 45.523496),
+        lng = c(-73.549526, -73.531861, -73.563053, -73.587501, -73.579379, -73.556120, -73.549584, -73.618285, -73.534287))
+
+MontrealLatLong %>%
+        leaflet() %>%
+        addTiles() %>%
+        addMarkers(icon = MontrealIcons, popup = MontrealSites)
+```
+
+
+
+
+
+
+
